@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CYBERSHIELD NIGERIA</title>
+    <link rel="icon" href="images/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="style.css">
+    <link
+     rel="stylesheet"
+     href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
+   />
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+    <script type="module" src="firebaseauth.js"></script>
+
+    <style>
+      body {
+    font-family: Arial, sans-serif;
+    background-color: rgb(252, 156, 73);;
+    margin: 0;
+    padding: 20px;
+}
+
+.container {
+    max-width: 600px;
+    margin: auto;
+    background: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+    text-align: center;
+}
+
+.profile-image {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.profile-image img {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    border: 2px solid #ddd;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+input, select {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+button {
+    width: 100%;
+    padding: 10px;
+    background-color: blue;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: red;
+}
+</style>
+</head>
+<body>
+
+  
+   <!------------ header ------------>
+   
+   <nav style="background-color:rgb(252, 156, 73);">
+    <div class="nav-links" id="navLinks">
+        <i class="fa-solid fa-xmark" onclick="hideMenu()"></i>
+        <ul>
+          <h4>
+            <span style="color: rgb(252, 156, 73);;">Main Menu</span>
+            <div class="menu-separator"></div>
+          </h4>
+          <li>
+            <a href="dashboard.html">
+              <span class="material-symbols-outlined"></span
+              ><span style="color: rgb(252, 156, 73);">Dashboard</span></a
+            >
+          </li>
+          <li>
+            <a href="#"
+              ><span class="material-symbols-outlined"></span
+              ><span style="color: rgb(252, 156, 73);">Notifications</span></a
+            >
+          </li>
+          <li>
+            <a href="#"
+              ><span class="material-symbols-outlined"></span
+              ><span style="color: rgb(252, 156, 73);">Analytic</span></a
+            >
+          </li>
+          
+          <h4>
+            <span style="color: rgb(252, 156, 73);">Account</span>
+            <div class="menu-separator"></div>
+          </h4>
+          <li>
+            <a href="profile.html"
+              ><span class="material-symbols-outlined"></span
+              ><span style="color: rgb(252, 156, 73);">Profile</span></a
+            >
+          </li>
+          <li>
+            <a href="#"
+              ><span class="material-symbols-outlined"></span
+              ><span style="color: rgb(252, 156, 73);">Settings</span></a
+            >
+          </li>
+          <li>
+            <a href="index.html"
+              ><span class="material-symbols-outlined"></span><span style="color: rgb(252, 156, 73);">Logout</span></a
+            >
+          </li>
+        </ul>
+        <div class="user-account">
+              <p style="font-size:x-small; color: white; text-align: center;"><span style="color: rgb(252, 156, 73);">© 2024 Cybershield Nigeria.</span></p>
+            </div>
+        </ul>
+    </div>
+    <i class="fa-solid fa-bars" onclick="showMenu()"></i>
+</nav>
+
+  <aside class="sidebar">
+    <div class="sidebar-header">
+      <img src="images/Cybershied logo.png" alt="logo" />
+      <h2>Cybershied Nigeria</h2>
+    </div>
+    <ul class="sidebar-links">
+      <h4>
+        <span>Main Menu</span>
+        <div class="menu-separator"></div>
+      </h4>
+      <li>
+        <a href="dashboard.html">
+          <span class="material-symbols-outlined"></span
+          >Dashboard</a
+        >
+      </li>
+      <li>
+        <a href="#"
+          ><span class="material-symbols-outlined"></span
+          >Notifications</a
+        >
+      </li>
+      <li>
+        <a href="#"
+          ><span class="material-symbols-outlined"></span
+          >Analytic</a
+        >
+      </li>
+      
+      <h4>
+        <span>Account</span>
+        <div class="menu-separator"></div>
+      </h4>
+      <li>
+        <a href="profile.html"
+          ><span class="material-symbols-outlined"></span
+          >Profile</a
+        >
+      </li>
+      <li>
+        <a href="#"
+          ><span class="material-symbols-outlined"></span
+          >Settings</a
+        >
+      </li>
+      <li>
+        <a href="index.html"
+          ><span class="material-symbols-outlined"></span>Logout</a
+        >
+      </li>
+    </ul>
+    <div class="user-account">
+          <p style="font-size:xx-small; color: white;">© 2024 Cybershield Nigeria.</p>
+        </div>
+      </div>
+    </div>
+  </aside>
+  <section>
+
+       <div class="container" id="profile">
+        <h1>User Profile</h1>
+        <div class="profile-image">
+            <img id="profileImg" src="" alt="Profile Image">
+            <input type="file" id="imgUpload" accept="image/*">
+        </div>
+        <form>
+        <div class="form-group">
+            <label for="fullName">Full Name:</label>
+            <input type="text" id="fullName" placeholder="fullName" required>
+        </div>
+        <div class="form-group">
+            <label for="username">Username:</label>
+            <input type="text" id="username" placeholder="username" required>
+        </div>
+        <div class="form-group">
+            <label for="email">Email Address:</label>
+            <input type="email" id="email" placeholder="email" required>
+        </div>
+        <div class="form-group">
+            <label for="phone">Phone:</label>
+            <input type="tel" id="phone" placeholder="phone" required>
+        </div>
+        <div class="form-group">
+            <label for="address">Home Address:</label>
+            <input type="text" id="address" placeholder="address" required>
+        </div>
+        <div class="form-group">
+            <label for="age">Age:</label>
+            <input type="number" id="age" placeholder="age" required>
+        </div>
+        <div class="form-group">
+            <label for="gender">Gender:</label>
+            <select id="gender" placeholder="gender" required>
+                <option value="male">Male</option>
+                <option value="female">Female</option>
+                <option value="other">Other</option>
+            </select>
+        </div>
+        <button id="updateButton">Update</button>
+        </form>
+    </div>
+
+    <a href="dashboard.html">
+      <button class="return-top">Ask Ai</button>
+    
+     </a>
+
+
+
+      <style>
+
+     /* Back To Top */
+.return-top {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: #4CAF50;
+    border: none;
+    padding: 10px;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    width: 50px;
+}
+
+.return-top:hover {
+    background-color: #3e8e41;
+}
+      </style>
+
+      <script>
+        document.addEventListener('DOMContentLoaded', function() {
+    loadUserData();
+
+    const imgUpload = document.getElementById('imgUpload');
+    imgUpload.addEventListener('change', function(event) {
+        const file = event.target.files[0];
+        if (file) {
+            const reader = new FileReader();
+            reader.onload = function(e) {
+                document.getElementById('profileImg').src = e.target.result;
+            }
+            reader.readAsDataURL(file);
+        }
+    });
+
+    document.getElementById('updateButton').addEventListener('click', function() {
+        const userData = {
+            fullName: document.getElementById('fullName').value,
+            username: document.getElementById('username').value,
+            email: document.getElementById('email').value,
+            phone: document.getElementById('phone').value,
+            address: document.getElementById('address').value,
+            age: document.getElementById('age').value,
+            gender: document.getElementById('gender').value,
+            profileImg: document.getElementById('profileImg').src
+        };
+        localStorage.setItem('userProfile', JSON.stringify(userData));
+        alert('Profile updated successfully!');
+    });
+});
+
+function loadUserData() {
+    const userData = JSON.parse(localStorage.getItem('userProfile'));
+    if (userData) {
+        document.getElementById('fullName').value = userData.fullName || '';
+        document.getElementById('username').value = userData.username || '';
+        document.getElementById('email').value = userData.email || '';
+        document.getElementById('phone').value = userData.phone || '';
+        document.getElementById('address').value = userData.address || '';
+        document.getElementById('age').value = userData.age || '';
+        document.getElementById('gender').value = userData.gender || 'male';
+        document.getElementById('profileImg').src = userData.profileImg || '';
+    }
+}
+      </script>
+
+    <script src="script.js"></script>
+<script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+<script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+<script src="https://kit.fontawesome.com/a469782c2a.js" crossorigin="anonymous"></script>
+
+<script>
+  //  disable right click  //
+document.addEventListener("contextmenu", Event => Event.preventDefault());
+document.onkeydown=function(e) {
+
+//  disable f12 key  //
+if(e.keycode == 123) {
+  alert("f12 disabled");
+  return false;
+}
+
+//  disable c key //
+if(e.ctrlKey  , e.keycode == 67) {
+  alert("ctrl + c disabled");
+  return false;
+}
+
+//  disable u key //
+if(e.ctrlKey  , e.keycode == 65) {
+  alert("ctrl + u disabled");
+  return false;
+}
+} 
+
+</script>
+
+
+</body>
+</html>
