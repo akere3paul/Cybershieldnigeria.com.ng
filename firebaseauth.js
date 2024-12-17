@@ -1,26 +1,16 @@
 // Import the functions you need from the SDKs you need
-import { initializeApp } from "https://www.gstatic.com/firebasejs/11.0.2/firebase-app.js";
-import {getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword} from "https://www.gstatic.com/firebasejs/11.0.2/firebase-auth.js";
-import{getFirestore, setDoc, doc} from "https://www.gstatic.com/firebasejs/11.0.2/firebase-firestore.js"
+//import { initializeApp } from "https://www.gstatic.com/firebasejs/11.0.2/firebase-app.js";
+//import {getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword} from "https://www.gstatic.com/firebasejs/11.0.2/firebase-auth.js";
+//import{getFirestore, setDoc, doc} from "https://www.gstatic.com/firebasejs/11.0.2/firebase-firestore.js"
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
 
 
 // Your web app's Firebase configuration
-const firebaseConfig = {
-  apiKey: "AIzaSyAF8rKd1Owo_juSyr-SeR7-c3nftUpRTEI",
-  authDomain: "taskmaster-c94c1.firebaseapp.com",
-  projectId: "taskmaster-c94c1",
-  storageBucket: "taskmaster-c94c1.firebasestorage.app",
-  messagingSenderId: "163820701482",
-  appId: "1:163820701482:web:3eee36ecacf6894cb90053"
-};
+
 
 // Initialize Firebase
-const app = initializeApp(firebaseConfig);
 
-function showMessage(message, divId){
-    var messageDiv=document.getElementById(divId);
     messageDiv.style.display="block";
     messageDiv.innerHTML=message;
     messageDiv.style.opacity=1;
@@ -69,12 +59,12 @@ function showMessage(message, divId){
     })
  });
 
- const signIn=document.getElementById('submitSignIn');
- signIn.addEventListener('click', (event)=>{
-    event.preventDefault();
-    const email=document.getElementById('email').value;
-    const password=document.getElementById('password').value;
-    const auth=getAuth();
+// const signIn=document.getElementById('submitSignIn');
+ //signIn.addEventListener('click', (event)=>{
+   /// event.preventDefault();
+    //onst email=document.getElementById('email').value;
+    //const password=document.getElementById('password').value;
+    //const auth=getAuth();
 
     signInWithEmailAndPassword(auth, email,password)
     .then((userCredential)=>{
